@@ -17,6 +17,6 @@ FROM openjdk:17-jdk
 VOLUME /tmp
 
 # Copy the JAR from the build stage
-COPY --from=build /app/target/*.war app.war
-ENTRYPOINT ["java","-war","/app.war"]
+COPY --from=build /app/target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
 EXPOSE 8080
